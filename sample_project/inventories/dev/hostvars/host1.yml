@@ -1,0 +1,14 @@
+volume_groups:
+  data_group:
+    meta:
+      snapkins_bakcup_schedules: <defined by blub>
+    volume1:
+      storage_provider: 600iops
+      size: 50G
+    volume2:
+      storage_provider: 600iops
+      size: 50G
+    volume3:
+
+service_sla: blub
+extension_policy:
