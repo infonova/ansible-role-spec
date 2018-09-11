@@ -1,0 +1,23 @@
+---
+# definition which playbook calls need to be checked for spec violations
+
+- test-description: "use case 1"
+  playbook: "site.yml"
+  inventories:
+    - "inventories/production"
+    - "inventories/staging"
+  extra_vars:
+    - foo: bar
+  extra_var_files:
+    - relpath: some_extra_vars.yml
+  limit: all
+- test-description: "use case 2"
+  playbook: "site.yml"
+  inventories:
+    - "inventories/production"
+    - "inventories/staging"
+  extra_vars:
+    - foo: bar
+  extra_var_files:
+    - relpath: some_extra_vars.yml
+  limit: all

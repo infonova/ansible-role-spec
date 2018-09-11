@@ -1,0 +1,6 @@
+---
+
+- hosts: db
+  roles:
+    - role1
+    - { role: 'role2', some_param: "foo" }

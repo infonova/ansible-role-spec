@@ -1,0 +1,11 @@
+volume_groups:
+  data_group:
+    meta:
+      snapkins_backup_schedule: "* */4 * * *"   # this should be defined by sla -> spec it so sla can be satisfied
+    volume1:
+      storage_provider: 600iops
+      size: 10G
+    volume2:
+      storage_provider: 600iops
+      size: 10G
+

@@ -1,6 +1,22 @@
-(ns ansible-role-spec.core)
+(ns ansible-role-spec.core
+  (:require[clj-yaml.core :as yaml])
+  (:import (java.io File)))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+
+(def project-path "sample_project")
+
+(defn parse-yaml-file [file]
+  (println (str project-path File/separator file))
+  (yaml/parse-string (slurp (str project-path File/separator file))))
+
+; config contains use cases to validate
+; we detect role-calls to validate (aka plays with roles directive)
+; we parse var-map for hosts relevant to role calls
+
+(def cfg (parse-yaml-file "ars.yml"))
+
+(defn get-relevant-plays [{:as cfg-entry
+                           :keys [playbook inventories limit]}]
+  (parse-yaml-file playbook))
+
+(get-relevant-plays cfg)

@@ -1,0 +1,12 @@
+---
+# definitions for all db hosts of this inventory
+
+db_port: 5432
+network_interfaces:
+  - network_id: "storage-network-id"
+
+service_sla:
+  latest_restore_not_older_than_minutes: 240
+  restore_data_up_to_days_in_past: 8
+  snapshot_interval_minutes: 240
+  weekend_snapshots_required: True

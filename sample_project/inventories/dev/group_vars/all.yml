@@ -1,4 +1,0 @@
----
-# these are definitions for all hosts of this inventory
-cloud_platform_key: openstack   # means: all dev hosts run on openstack
-

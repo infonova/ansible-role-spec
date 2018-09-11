@@ -1,0 +1,12 @@
+---
+# main playbook
+
+- name: "some dummy play"
+  hosts: all
+  tasks:
+    - debug:
+        msg: "i am weasel"
+
+- import_playbook: dbservers.yml
+
+- import_playbook: webservers.yml
