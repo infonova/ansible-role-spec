@@ -1,5 +1,7 @@
 (ns ansible-role-spec.core
-  (:require[clj-yaml.core :as yaml])
+  (:require
+    [clj-yaml.core :as yaml]
+    [ansible-role-spec.watching :as watching])
   (:import (java.io File)))
 
 
@@ -20,11 +22,13 @@
                 playbook
                 inventories
                 limit] :as usecase} usecases]
+    ;TODO extract relevant plays from playbooks-code while considering limit and inventory config
     [test-description playbook inventories limit]))
 
 (get-relevant-plays cfg)
 
 (comment
+  (watching/watch! {} [project-path] #(println "foo" %&))
   ((into {} cfg) :playbook)
   ((first cfg) :test-description)
   ((second cfg) :test-description))

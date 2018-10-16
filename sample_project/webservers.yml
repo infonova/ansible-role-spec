@@ -3,4 +3,4 @@
 - hosts: webserver
   roles:
     - role1
-    - { role: 'role2', some_param: "foo" }
+    - { role: 'role2', some_param: "foo" }test
