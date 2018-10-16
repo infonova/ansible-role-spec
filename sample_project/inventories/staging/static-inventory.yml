@@ -1,0 +1,12 @@
+---
+
+all:
+  hosts:
+    foo.example.com:
+  children:
+    db:
+      hosts:
+        host1:
+    webserver:
+      hosts:
+        host2:
