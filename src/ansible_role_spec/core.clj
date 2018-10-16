@@ -15,8 +15,16 @@
 
 (def cfg (parse-yaml-file "ars.yml"))
 
-(defn get-relevant-plays [{:as cfg-entry
-                           :keys [playbook inventories limit]}]
-  (parse-yaml-file playbook))
+(defn get-relevant-plays [usecases]
+  (for [{:keys [test-description
+                playbook
+                inventories
+                limit] :as usecase} usecases]
+    [test-description playbook inventories limit]))
 
 (get-relevant-plays cfg)
+
+(comment
+  ((into {} cfg) :playbook)
+  ((first cfg) :test-description)
+  ((second cfg) :test-description))
